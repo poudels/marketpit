@@ -31,6 +31,11 @@ def create_app():
     init_callbacks(app)
     return app
 
+# Create the app instance
+app = create_app()
+
+# This is needed for Gunicorn/Render
+server = app.server
+
 if __name__ == '__main__':
-    app = create_app()
     app.run_server(debug=True)
